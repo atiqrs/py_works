@@ -3,7 +3,7 @@ import argparse
 import cv2
 
 # Load
-imgon = cv2.imread("res/on.jpg")
+imgon = cv2.imread("res/off.jpg")
 
 # Console Print
 print("width: {} pixels".format(imgon.shape[1]))
@@ -15,4 +15,4 @@ cv2.imshow("Viewer 1",imgon)
 cv2.waitKey(0)
 
 # Save
-cv2.imwrite("D:/image.jpg",imgon)
+cv2.imwrite("D:/off.png",imgon)
