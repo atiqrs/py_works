@@ -1,17 +1,18 @@
 import cv2
 import numpy as np
 
-img = cv2.imread("res/off.png",1)
+karnel = np.ones((20,20),np.uint8)
+
+
+img = cv2.imread("res/on.jpg",1)
 imgGrey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-cv2.imshow("img1", img)
-cv2.imshow("img2", imgGrey)
+imgBlur = cv2.GaussianBlur(imgGrey,(11,11),0)
+imgEdge = cv2.Canny(imgBlur, 20,50)
+imgDialation = cv2.dilate(imgEdge,karnel,iterations=1)
 
-imgBlur = cv2.Gur(img, cv2.COLOR_BGR2GRAY)
-# imgDialation = cv2.dilate(img, cv2.COLOR_BGR2GRAY)
-# imgDialation = cv2.dilate(img, cv2.COLOR_BGR2GRAY)
+imagem = cv2.bitwise_not(imgDialation)
 
-
-_, thrash = cv2.threshold(imgGrey, 240, 255, cv2.THRESH_BINARY)
+_, thrash = cv2.threshold(imagem, 240, 255, cv2.THRESH_BINARY)
 contours, _ = cv2.findContours(thrash, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
 cv2.imshow("img", img)

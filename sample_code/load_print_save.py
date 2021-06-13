@@ -3,7 +3,7 @@ import argparse
 import cv2
 
 # Load
-imgon = cv2.imread("res/off.jpg")
+imgon = cv2.imread("../res/off.jpg")
 
 # Console Print
 print("width: {} pixels".format(imgon.shape[1]))
