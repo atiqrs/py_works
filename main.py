@@ -1,17 +1,23 @@
-import numpy as np
-import cv2 as cv
-img = cv.imread("res/fon.jpg",1)
-output = img.copy()
-gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-gray = cv.medianBlur(gray, 5)
-circles = cv.HoughCircles(gray, cv.HOUGH_GRADIENT, 1, 20,
-                          param1=50, param2=20, minRadius=0, maxRadius=0)
-detected_circles = np.uint16(np.around(circles))
-for (x, y ,r) in detected_circles[0, :]:
-    cv.circle(output, (x, y), r, (0, 0, 0), 3)
-    cv.circle(output, (x, y), 2, (0, 255, 255), 3)
+# df.to_csv(‘existing.csv’, mode=’a’, index=False, header=False)
 
+# Append Pandas DataFrame to Existing CSV File
+# importing pandas module
+import pandas as pd
 
-cv.imshow('output',output)
-cv.waitKey(0)
-cv.destroyAllWindows()
+# data of Player and their performance
+data = {
+	'Name': ['Mr. Y', 'Mr. X', 'Mr. Z'],
+	'Age': [15,12,13],
+	# 'Catch': [4, 2, 1]
+}
+
+# Make data frame of above data
+df = pd.DataFrame(data, index=['1', '2', '3'])
+
+# append data frame to CSV file
+# df.to_csv('test.csv', mode='a',header= True, index=False,)
+df.to_csv('test.csv', mode='a',header= False, index=True,)
+# df.to_csv('res/csv/test.csv', mode='a', index=False, header=False)
+
+# print message
+print("Data appended successfully.")
