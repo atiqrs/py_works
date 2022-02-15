@@ -6,17 +6,21 @@ import pandas as pd
 
 # data of Player and their performance
 data = {
-	'Name': ['Mr. Y', 'Mr. X', 'Mr. Z'],
-	'Age': [15,12,13],
-	# 'Catch': [4, 2, 1]
+	'omr_val_sl': 'AFSD284A',
+	'omr_val_roll': 10202,
+	'omr_val_qr': 'AFSD284A',
+	'omr_val_start_time': '2019-01-01 01:17:49',
+	'omr_val_end_time': '2019-01-01 01:18:10', # time stamp
 }
 
+# i feel i can be fit for your team and i will be happy to be your player.
+
 # Make data frame of above data
-df = pd.DataFrame(data, index=['1', '2', '3'])
+df = pd.DataFrame(data, index=[0])
 
 # append data frame to CSV file
 # df.to_csv('test.csv', mode='a',header= True, index=False,)
-df.to_csv('test.csv', mode='a',header= False, index=True,)
+df.to_csv('test.csv', mode='a',header= False,)
 # df.to_csv('res/csv/test.csv', mode='a', index=False, header=False)
 
 # print message
